@@ -35,10 +35,10 @@ public class Staff
       staffList[5] = new Volunteer ("Cliff", "321 Duds Lane",
          "555-7282");
 
-      staffList[6] = new Commission ("Dwayne", "123 Rock Bottom",
+      staffList[6] = new Commission ("Jack", "123 Rock Bottom",
               "555-1933", "010-30-2050", 6.25, 0.2);
       
-      staffList[7] = new Commission ("Johnson", "456 God Hill",
+      staffList[7] = new Commission ("Brown", "456 God Hill",
               "555-2021", "966-46-3625", 9.75, 0.15);
       
     ((Executive)staffList[0]).awardBonus (500.00); 

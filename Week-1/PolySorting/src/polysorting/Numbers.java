@@ -35,6 +35,13 @@ public class Numbers
 	for (int i = 0; i < size; i++)
 	    System.out.print(intList[i] + "  ");
 	System.out.println ();
+        
+        Sorting.insertionSort(intList);
+
+        System.out.println("\nYour numbers in descending order...");
+        for (int i = 0; i < size; i++)
+            System.out.print(intList[i] + "  ");
+        System.out.println ();
 
 	}
 }

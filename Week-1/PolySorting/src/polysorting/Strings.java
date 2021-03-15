@@ -1,5 +1,11 @@
 package polysorting;
 
+// ******************************************************
+//   Numbers.java
+//
+//   Demonstrates selectionSort on an array of strings.
+// ******************************************************
+
 import java.util.Scanner;
 
 public class Strings
@@ -17,23 +23,23 @@ public class Strings
 
 	System.out.print ("\nHow many Strings do you want to sort? ");
 	size = scan.nextInt();
-	strList = new String[size];
+	strList = new String[size+1];
 
 	System.out.println ("\nEnter the Strings...");
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size+1; i++)
 	    strList[i] = scan.nextLine();
 
 	Sorting.selectionSort(strList);
 
 	System.out.println ("\nYour Strings in sorted order...");
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size+1; i++)
 	    System.out.print(strList[i] + "  ");
 	System.out.println ();
 
         Sorting.insertionSort(strList);
 
         System.out.println ("\nYour Strings in descending order...");
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < size+1; i++)
             System.out.print(strList[i] + "  ");
         System.out.println ();
 	}

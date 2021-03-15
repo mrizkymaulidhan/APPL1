@@ -51,18 +51,14 @@ public class Salesperson implements Comparable
 	int result = 0;
 	Salesperson otherS = (Salesperson) other;
 
-	result = (getSales() > otherS.getSales())?-1:((getSales() < otherS.getSales())?1:0);
-
-		if (result == 0) {
-			if (getLastName().compareTo(otherS.getLastName()) > 0)return -1;
-			else if (getLastName().compareTo(otherS.getLastName()) < 0)return 1;
-			else if (getLastName().compareTo(otherS.getLastName()) == 0){
-				if (getFirstName().compareTo(otherS.getFirstName()) > 0)return -1;
-				else if (getFirstName().compareTo(otherS.getFirstName()) < 0)return 1;
-			}
-		}
-		return result;
-	}
+	result = Integer.compare(getSales(),((Salesperson)other).getSales());
+        
+        if (result==0) {
+            result = getFirstName().compareTo(((Salesperson)other).getFirstName());
+        }
+        
+        return result;
+    }
 
     //-------------------------
     //  First name accessor.

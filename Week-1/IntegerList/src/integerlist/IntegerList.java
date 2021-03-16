@@ -117,4 +117,30 @@ public class IntegerList
             }
     }
     
+    // ------------------------------------------------------------------
+    //   Returns the index of the first occurrence of target in the list.
+    //   Returns -1 if target does not appear in the list.
+    //   Using binary search algorithm.
+    // ------------------------------------------------------------------
+    public int binarySearchD(int target)
+    {
+        int tail, mid, head;
+        this.sortDecreasing();
+        tail = 0;
+        head = (list.length - 1);
+        mid = (tail + head) / 2;
+        while (list[mid] != target && tail <= head)
+        {
+            if (target < list[mid])
+                tail = mid + 1;
+            else
+                head = mid - 1;
+
+            mid = (tail + head) / 2;
+        }
+        if (list[mid] == target)
+            return mid;
+        else
+            return -1;
+    }
 }

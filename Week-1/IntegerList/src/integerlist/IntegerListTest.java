@@ -71,6 +71,9 @@ public class IntegerListTest
                 newVal = scan.nextInt();
                 list.replaceAll(oldVal, newVal);
                 break;
+            case 6:
+                list.sortDecreasing();
+                break;
             case 7:
                 list.print();
                 break;

@@ -36,13 +36,31 @@ public class CirclePanel extends JPanel
         JButton right = new JButton("Right");
         JButton up = new JButton("Up");
         JButton down = new JButton("Down");
-
+        
+        //Create buttons to change color of the circle
+        JButton red = new JButton("Red");
+        JButton green = new JButton("Green");
+        JButton blue = new JButton("Blue");
+        JButton yellow = new JButton("Yellow");
+        
         //Add listeners to the buttons
         left.addActionListener(new MoveListener(-20,0));
         right.addActionListener(new MoveListener(20,0));
         up.addActionListener(new MoveListener(0,-20));
         down.addActionListener(new MoveListener(0,20));
-
+        
+        //Add listeners to the color buttons
+        red.addActionListener(new ColorListener());
+        green.addActionListener(new ColorListener());
+        blue.addActionListener(new ColorListener());
+        yellow.addActionListener(new ColorListener());
+        
+        //Set color for button text
+        red.setForeground(Color.RED);
+        green.setForeground(Color.GREEN);
+        blue.setForeground(Color.BLUE);
+        yellow.setForeground(Color.YELLOW);
+        
         //Need a panel to put the buttons on or they'll be on
         //top of each other.
         JPanel buttonPanel = new JPanel();
@@ -50,9 +68,18 @@ public class CirclePanel extends JPanel
         buttonPanel.add(right);
         buttonPanel.add(up);
         buttonPanel.add(down);
+        
+        //Need another panel to put the buttons on or they'll be on
+        //top of each other. Still.
+        JPanel colorButton = new JPanel();
+        colorButton.add(red);
+        colorButton.add(green);
+        colorButton.add(blue);
+        colorButton.add(yellow);
 
         //Add the button panels to the bottom of the main panel
         this.add(buttonPanel, "South");
+        this.add(colorButton, "North");
     }
 
     //---------------------------------------------------------------
@@ -92,5 +119,25 @@ public class CirclePanel extends JPanel
             y += dy;
             repaint();
         }
+    }
+    
+    private class ColorListener implements ActionListener
+    {
+	public void actionPerformed(ActionEvent e) 
+        {
+		if(e.getSource() == "red")
+			c = Color.RED;
+		
+                else if(e.getSource() == "green")
+			c = Color.GREEN;
+		
+                else if(e.getSource() == "blue")
+			c = Color.BLUE;
+		
+                else if(e.getSource() == "yellow")
+			c = Color.YELLOW;
+	
+		repaint();
+	}	
     }
 }

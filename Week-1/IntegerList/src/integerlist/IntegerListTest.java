@@ -34,7 +34,7 @@ public class IntegerListTest
     // -------------------------------------
     public static void dispatch(int choice)
     {
-        int loc;
+        int loc, oldVal, newVal;
         switch(choice)
             {
             case 0:
@@ -58,6 +58,20 @@ public class IntegerListTest
                     System.out.println("Not in list");
                 break;
             case 4:
+                System.out.print("Enter the value to replace: ");
+                oldVal = scan.nextInt();
+                System.out.print("Enter the new value: ");
+                newVal = scan.nextInt();
+                list.replaceFirst(oldVal, newVal);
+                break;
+            case 5:
+                System.out.print("Enter the value to replace: ");
+                oldVal = scan.nextInt();
+                System.out.print("Enter the new value: ");
+                newVal = scan.nextInt();
+                list.replaceAll(oldVal, newVal);
+                break;
+            case 7:
                 list.print();
                 break;
             default:
@@ -76,7 +90,10 @@ public class IntegerListTest
         System.out.println("1: Create new list elements (** do this first!! **)");
         System.out.println("2: Sort the list using selection sort");
         System.out.println("3: Find an element in the list using linear search");
-        System.out.println("4: Print the list");
+        System.out.println("4: Replace an element in the list");
+        System.out.println("5: Replace all elements in the list");
+        System.out.println("6: Sort the list as descending order");
+        System.out.println("7: Print the list");
         System.out.print("\nEnter your choice: ");
     }
 }

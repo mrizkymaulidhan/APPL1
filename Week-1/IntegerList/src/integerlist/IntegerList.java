@@ -97,24 +97,20 @@ public class IntegerList
     }
     
     // ------------------------------------------------------------------------
-    //  Sorts the list into descending order using the selection sort algorithm.
-    // ------------------------------------------------------------------------
+    //  Sorts the list into descending order using the insertion sort algorithm.
+    // -----------------------------------------------------------------------
     public void sortDecreasing()
     {
-	int maxIndex;
-	for (int i=0; i < list.length-1; i++)
-            {
-                //find smallest element in list starting at location i
-                maxIndex = i;
-                for (int j = i+1; j < list.length; j++)
-                    if (list[j] > list[maxIndex])
-                        maxIndex = j;
-
-                //swap list[i] with smallest element
-                int temp = list[i];
-                list[i] = list[maxIndex];
-                list[maxIndex] = temp;
+        for (int i = 1; i < list.length; i++) {
+            int key = list[i];
+            int j = i - 1;
+ 
+            while (j >= 0 && list[j] < key) {
+                list[j + 1] = list[j];
+                j = j - 1;
             }
+            list[j + 1] = key;
+        }
     }
     
     // ------------------------------------------------------------------

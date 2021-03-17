@@ -50,6 +50,7 @@ public class Staff
     
     ((Commission)staffList[7]).addHours (40);
     ((Commission)staffList[7]).addSales (950);
+    
    }
 
    //-----------------------------------------------------------------

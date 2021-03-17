@@ -44,7 +44,8 @@ public class Commission extends Hourly
   //----------------------------------------------------------------- 
   //  Returns information about this commission employee as a string. 
   //-----------------------------------------------------------------
-  public String toString() {
+  public String toString() 
+  {
     String result = super.toString();
     result += "\nTotal Sales: " + totalSales; 
     return result;

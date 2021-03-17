@@ -10,9 +10,10 @@ package paintingshapes;
 
 import java.text.DecimalFormat;
 
-public class PaintThings {
-
-    public static void main (String[] args){
+public class PaintThings 
+{
+    public static void main (String[] args)
+    {
         final double COVERAGE = 350;
         Paint paint = new Paint(COVERAGE);     
         

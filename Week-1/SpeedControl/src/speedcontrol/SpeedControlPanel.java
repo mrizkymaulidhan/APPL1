@@ -26,7 +26,7 @@ public class SpeedControlPanel extends JPanel
     
     private JSlider slider;
     private JLabel label;
-    private JPanel panel;
+    public JPanel panel;
     
     // ---------------------------------------------
     // Sets up the panel, including the timer
@@ -50,9 +50,12 @@ public class SpeedControlPanel extends JPanel
         slider.setPaintLabels(true);
         slider.setAlignmentX(Component.LEFT_ALIGNMENT);
         
+        slider.addChangeListener(new SlideListener());
+        
         label = new JLabel("Timer Delay");
         label.setAlignmentX(Component.LEFT_ALIGNMENT);
         
+        panel = new JPanel();
         panel.add(label);
         panel.add(slider);
         this.add(panel, "South");
@@ -82,15 +85,18 @@ public class SpeedControlPanel extends JPanel
         // ----------------------------------------------------
         public void actionPerformed(ActionEvent action)
         {
+            int slidePanelHt = panel.getSize().height;
+            
             bouncingBall.move(moveX, moveY);
             
             // change direction if ball hits a side
             int x = bouncingBall.getX();
             int y = bouncingBall.getY();
+            
             if (x < 0 || x >= WIDTH - BALL_SIZE)
                 moveX = moveX * -1;
             
-            if (y <= 0 || y >= HEIGHT - BALL_SIZE)
+            if (y <= 0 || y >= HEIGHT - slidePanelHt - BALL_SIZE)
                 moveY = moveY * -1;
             
             repaint();

@@ -55,6 +55,9 @@ public class Salesperson implements Comparable
         
         if (result==0) {
             result = getFirstName().compareTo(((Salesperson)other).getFirstName());
+            if (result==0) {
+                result = getLastName().compareTo(((Salesperson)other).getLastName());
+            }
         }
         
         return result;

@@ -1,7 +1,7 @@
 package polysorting;
 
 // ******************************************************
-//   Numbers.java
+//   Strings.java
 //
 //   Demonstrates selectionSort on an array of strings.
 // ******************************************************

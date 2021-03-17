@@ -122,7 +122,6 @@ public class IntegerList
     public int binarySearch(int target)
     {
         int tail, mid, head;
-        this.sortDecreasing();
         tail = 0;
         head = (list.length - 1);
         mid = (tail + head) / 2;

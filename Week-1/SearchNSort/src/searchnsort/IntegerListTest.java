@@ -37,9 +37,8 @@ public class IntegerListTest
     {
         int loc;
         int val;
-        long time1, time2, result;
-        switch(choice)
-            {
+        long time1,time2, diff;
+        switch(choice){
             case 0:
                 System.out.println("Bye!");
                 break;
@@ -62,28 +61,48 @@ public class IntegerListTest
             case 5:
                 System.out.print("Enter the value to look for: ");
                 val = scan.nextInt();
+                time1 = System.currentTimeMillis();
                 loc = list.linearSearch(val);
+                time2 = System.currentTimeMillis();
+                diff = time2 - time1;
+                System.out.println("The time required for this operation is " + diff +
+                        " milliseconds");
                 if (loc != -1)
                     System.out.println("Found at location " + loc);
                 else
                     System.out.println("Not in list");
                 break;
             case 6:
+                list.sortIncreasing();
                 System.out.print("Enter the value to look for: ");
                 val = scan.nextInt();
+                time1 = System.currentTimeMillis();
                 loc = list.binarySearch(val);
+                time2 = System.currentTimeMillis();
+                diff = time2 - time1;
+                System.out.println("The time required for this operation is " + diff +
+                        " milliseconds");
                 if (loc != -1)
                     System.out.println("Found at location " + loc);
                 else
                     System.out.println("Not in list");
                 break;
             case 7:
+                time1 = System.currentTimeMillis();
                 list.sortIncreasing();
                 time2 = System.currentTimeMillis();
+                diff = time2 - time1;
+                System.out.println("The time required for this operation is " + diff +
+                        " milliseconds");
                 System.out.println("List has been sorted.");
                 break;
             case 8:
+                time1 = System.currentTimeMillis();
                 list.sortDecreasing();
+                time2 = System.currentTimeMillis();
+                diff = time2 - time1;
+                System.out.println("The time required for this operation is " + diff +
+                        " milliseconds");
                 System.out.println("List has been sorted.");
                 break;
             default:

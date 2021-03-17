@@ -9,6 +9,7 @@ package searchnsort;
 // ****************************************************************
 
 import java.util.Scanner;
+import java.util.*;
 
 public class IntegerList
 {
@@ -78,5 +79,66 @@ public class IntegerList
             swap(list, i, minIndex);
         }
     }
+    
+    //find smallest element in list starting at location i
+    private int minIndex(int[] list, int i) {
+        int minIndex = i;
+        for (int j = i+1; j < list.length; j++){
+            if (list[j] < list[minIndex]){
+                minIndex = j;
+            }
+        }
+        return minIndex;
+    }
+    
+    //swap list[i] with smallest element
+    public void swap(int[] list, int a, int b){
+        int temp = list[a];
+        list[a] = list[b];
+        list[b] = temp;
+    }
+    
+    // ------------------------------------------------------------------------
+    //  Sorts the list into descending order using the insertion sort algorithm.
+    // -----------------------------------------------------------------------
+    public void sortDecreasing()
+    {
+        for (int i = 1; i < list.length; i++) {
+            int key = list[i];
+            int j = i - 1;
+ 
+            while (j >= 0 && list[j] < key) {
+                list[j + 1] = list[j];
+                j = j - 1;
+            }
+            list[j + 1] = key;
+        }
+    }
+    
+    //   Returns the index of the first occurrence of target in the list.
+    //   Returns -1 if target does not appear in the list.
+    //   Using binary search algorithm.
+    // ------------------------------------------------------------------
+    public int binarySearch(int target)
+    {
+        int tail, mid, head;
+        this.sortDecreasing();
+        tail = 0;
+        head = (list.length - 1);
+        mid = (tail + head) / 2;
+        
+        while (list[mid] != target && tail <= head)
+        {
+            if (target < list[mid])
+                tail = mid + 1;
+            else
+                head = mid - 1;
 
+            mid = (tail + head) / 2;
+        }
+        if (list[mid] == target)
+            return mid;
+        else
+            return -1;
+    }
 }

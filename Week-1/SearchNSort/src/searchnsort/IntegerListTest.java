@@ -8,11 +8,13 @@ package searchnsort;
 // ****************************************************************
 
 import java.util.Scanner;
+import java.util.*;
 
 public class IntegerListTest
 {
     static IntegerList list = new IntegerList(10);
     static Scanner scan = new Scanner(System.in);
+    
     //------------------------------------------------------
     // main -- creates an initial list, then repeatedly prints
     // the menu and does what the user asks until they quit
@@ -35,7 +37,7 @@ public class IntegerListTest
     {
         int loc;
         int val;
-        long time1,time2;
+        long time1, time2, result;
         switch(choice)
             {
             case 0:

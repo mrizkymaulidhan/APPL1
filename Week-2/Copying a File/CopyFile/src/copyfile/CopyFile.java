@@ -12,15 +12,15 @@ import java.util.Scanner;
 
 public class CopyFile {
     public static void main(String[] args) {
+        String fileName;
+        boolean isFound = false;
         Scanner scanner = new Scanner(System.in);
         Scanner scFile = null;
-        boolean isFound = false;
-        String fileName;
         File file;
         
         while(!isFound) {
             System.out.print("Input file name: ");
-            fileName = scanner.next();
+            fileName = scanner.nextLine();
             file = new File(fileName);
             try {
                 scFile = new Scanner(file);
@@ -31,7 +31,9 @@ public class CopyFile {
             if (scFile != null)
                 isFound = true;
         }
-        
+        if(isFound = true) {
+            while (scFile.hasNextInt())
+                 System.out.println(scFile.nextLine());
+        }
     }
-    
 }

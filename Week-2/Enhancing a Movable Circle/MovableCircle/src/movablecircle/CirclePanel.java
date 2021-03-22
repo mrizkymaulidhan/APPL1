@@ -52,10 +52,10 @@ public class CirclePanel extends JPanel {
         down.setMnemonic(KeyEvent.VK_D);
 
         //Add Tooltips to buttons
-        left.setToolTipText("Move circle left.");
-        right.setToolTipText("Move circle right.");
-        up.setToolTipText("Move circle up.");
-        down.setToolTipText("Move circle down.");
+        left.setToolTipText("Move circle left 20.");
+        right.setToolTipText("Move circle right 20.");
+        up.setToolTipText("Move circle up 20.");
+        down.setToolTipText("Move circle down 20.");
 
         //Need a panel to put the buttons on or they'll be on
         //top of each other.
@@ -106,13 +106,13 @@ public class CirclePanel extends JPanel {
             x += dx;
             y += dy;
 
-            if(x > getSize().getWidth() - CIRCLE_SIZE)
+            if(x > getSize().getWidth() - 85)
                 right.setEnabled(false);
-            if(x < 15)
+            if(x < 20)
                 left.setEnabled(false);
-            if(y > getSize().getHeight() - CIRCLE_SIZE - 100)
+            if(y > getSize().getHeight() - 115)
                 down.setEnabled(false);
-            if(y < 60)
+            if(y < 20)
                 up.setEnabled(false);
 
             repaint();

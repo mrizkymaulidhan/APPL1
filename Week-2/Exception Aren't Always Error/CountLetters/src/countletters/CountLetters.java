@@ -5,6 +5,7 @@ package countletters;
 // Reads a words from the standard input and prints the number of
 // occurences of each letter in that word.
 //
+// Modified by Mohammad Rizky Maulidhan (191524049).
 // ****************************************************************
 import java.util.Scanner;
 public class CountLetters {

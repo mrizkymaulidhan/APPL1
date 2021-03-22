@@ -5,6 +5,8 @@ package movablecircle;
 //
 //  A panel with a circle drawn in the center and buttons on the 
 //  bottom that move the circle.
+//
+//  Modified by Mohammad Rizky Maulidhan (191524049).
 //******************************************************************
 
 import java.awt.*;

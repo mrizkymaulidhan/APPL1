@@ -4,7 +4,7 @@ package copyfile;
 // 
 // Program that prompts the user for a filename, then opens a Scanner to the
 // file and copies it, a line at a time, to the standard output.
-
+//
 // Written by Mohammad Rizky Maulidhan (191524049).
 // **************************************************************************
 import java.io.*;
@@ -20,20 +20,21 @@ public class CopyFile {
         
         while(!isFound) {
             System.out.print("Input file name: ");
-            fileName = scanner.nextLine();
-            file = new File(fileName);
+            fileName = scanner.next();
+            file = new File("src/copyfile/"+fileName+".txt");
             try {
                 scFile = new Scanner(file);
+                isFound = true;
             }
             catch (FileNotFoundException ex) {
                 System.out.println("File not found!!");
             }
-            if (scFile != null)
-                isFound = true;
         }
+        
         if(isFound = true) {
-            while (scFile.hasNextInt())
+            while (scFile.hasNextLine()){
                  System.out.println(scFile.nextLine());
+            }
         }
     }
 }

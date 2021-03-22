@@ -15,7 +15,10 @@ public class CirclePanel extends JPanel {
     private final int CIRCLE_SIZE = 50;
     private int x,y;
     private Color c;
-    private JButton others;
+    private JButton left;
+    private JButton right;
+    private JButton up;
+    private JButton down;
 
     //---------------------------------------------------------------
     //Set up circle and buttons to move it.
@@ -31,10 +34,10 @@ public class CirclePanel extends JPanel {
         this.setLayout(new BorderLayout());
         
         //Create buttons to move the circle
-        JButton left = new JButton("Left");
-        JButton right = new JButton("Right");
-        JButton up = new JButton("Up");
-        JButton down = new JButton("Down");
+        left = new JButton("Left");
+        right = new JButton("Right");
+        up = new JButton("Up");
+        down = new JButton("Down");
         
         //Add listeners to the buttons
         left.addActionListener(new MoveListener(-20,0));
@@ -42,6 +45,18 @@ public class CirclePanel extends JPanel {
         up.addActionListener(new MoveListener(0,-20));
         down.addActionListener(new MoveListener(0,20));
         
+        //Add Mnumonicts to move buttons
+        left.setMnemonic(KeyEvent.VK_L);
+        right.setMnemonic(KeyEvent.VK_R);
+        up.setMnemonic(KeyEvent.VK_U);
+        down.setMnemonic(KeyEvent.VK_D);
+
+        //Add Tooltips to buttons
+        left.setToolTipText("Move circle left.");
+        right.setToolTipText("Move circle right.");
+        up.setToolTipText("Move circle up.");
+        down.setToolTipText("Move circle down.");
+
         //Need a panel to put the buttons on or they'll be on
         //top of each other.
         JPanel buttonPanel = new JPanel();
@@ -83,8 +98,23 @@ public class CirclePanel extends JPanel {
         //Change x and y coordinates and repaint.
         //---------------------------------------------------------------
         public void actionPerformed(ActionEvent e) {
+            left.setEnabled(true);
+            right.setEnabled(true);
+            up.setEnabled(true);
+            down.setEnabled(true);
+            
             x += dx;
             y += dy;
+
+            if(x > getSize().getWidth() - CIRCLE_SIZE)
+                right.setEnabled(false);
+            if(x < 15)
+                left.setEnabled(false);
+            if(y > getSize().getHeight() - CIRCLE_SIZE - 100)
+                down.setEnabled(false);
+            if(y < 60)
+                up.setEnabled(false);
+
             repaint();
         }
     }

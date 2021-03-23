@@ -12,9 +12,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 public class RatePanel extends JPanel {
-    private double[] rate; // exchange rates
     private String[] currencyName;
+    private double[] exrate;
+    private JLabel title;
     private JLabel result;
+    private JComboBox currencyBox;
+    private JTextField cost = new JTextField("0");
     // ------------------------------------------------------------
     // Sets up a panel to convert cost from one of 6 currencies
     // into U.S. Dollars. The panel contains a heading, a text
@@ -22,7 +25,7 @@ public class RatePanel extends JPanel {
     // the currency, and a label to display the result.
     // ------------------------------------------------------------
     public RatePanel () {
-        JLabel title = new JLabel ("How much is that in dollars?");
+        title = new JLabel ("How much is that in dollars?");
         title.setAlignmentX (Component.CENTER_ALIGNMENT);
         title.setFont (new Font ("Helvetica", Font.BOLD, 20));
         
@@ -32,12 +35,26 @@ public class RatePanel extends JPanel {
         "Japanese Yen", "Australian Dollar",
         "Indian Rupee", "Mexican Peso"};
         
-        rate = new double [] {0.0, 1.2103, 0.7351, 
+        exrate = new double [] {0.0, 
+            1.2103, 0.7351, 
             0.0091, 0.6969, 
             0.0222, 0.0880};
+        
         result = new JLabel (" ------------ ");
-        add (title);
-        add (result);
+
+        JLabel labelCost = new JLabel("Cost of an Item");
+        cost.setPreferredSize(new Dimension(100,25));
+        
+        JLabel labelCurrency = new JLabel("Currency Name");
+        currencyBox = new JComboBox(currencyName);
+        currencyBox.addActionListener(new ComboListener());
+        
+        add(title);
+        add(result);
+        add(labelCost);
+        add(cost);
+        add(labelCurrency, "SOUTH");
+        add(currencyBox);
     }
     // ******************************************************
     // Represents an action listener for the combo box.
@@ -49,9 +66,9 @@ public class RatePanel extends JPanel {
         // displays the value in U.S. Dollars.
         // --------------------------------------------------
         public void actionPerformed (ActionEvent event) {
-            int index = 0;
-            result.setText ("1 " + currencyName[index] +
-            " = " + rate[index] + " U.S. Dollars");
+            int index = currencyBox.getSelectedIndex();
+            result.setText (cost.getText() +" " + currencyName[index] +
+            " = " + (exrate[index] * Integer.valueOf(cost.getText())) + " U.S. Dollars");
         }
     }
 }   

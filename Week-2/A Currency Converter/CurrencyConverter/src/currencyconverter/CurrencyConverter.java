@@ -13,10 +13,10 @@ public class CurrencyConverter {
     public static void main (String[] args) {
         JFrame frame = new JFrame ("Currency Converter");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800,200);
         
         RatePanel ratePanel = new RatePanel ();
         frame.getContentPane().add(ratePanel);
-        frame.pack();
         frame.setVisible(true);
     }
 } 

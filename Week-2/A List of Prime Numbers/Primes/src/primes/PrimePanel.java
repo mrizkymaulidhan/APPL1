@@ -35,9 +35,9 @@ public class PrimePanel extends JPanel {
         
         computeButton.addActionListener(new ButtonListener());
         
-        //Create JScrollPane from primeList
+        // Create JScrollPane from primeList
         scrollPane = new JScrollPane(primeList);
-        //Vertical scroll always be displayed
+        // Vertical scroll always be displayed
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
         // Add the components to the panel
@@ -48,7 +48,7 @@ public class PrimePanel extends JPanel {
         add (scrollPane);
         
         setPreferredSize (new Dimension (400, 320));
-        setBackground (Color.yellow);
+        setBackground (Color.LIGHT_GRAY);
     }
     
     // *****************************************************************

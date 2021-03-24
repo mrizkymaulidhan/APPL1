@@ -6,24 +6,26 @@ package textfile;
 // Reads student data (name, semester hours, quality points) from a
 // text file, computes the GPA, then writes data to another file
 // if the student is placed on academic warning.
+// 
+// Modified by Mohammad Rizky Maulidhan (191524049)
 // ****************************************************************************
 
 import java.util.Scanner;
 import java.io.*;
+import java.text.DecimalFormat;
 
 public class Warning {
     public static void main (String[] args) {
         int creditHrs;      // number of semester hours earned
         double qualityPts;  // number of quality points earned
         double gpa;         // grade point (quality point) average
-        
         String line, name;
         String inputName = "src/textfile/students.dat";
         String outputName = "src/textfile/warning.dat";
-        
         File inFile;
         Scanner scanFile;
         PrintWriter outFile;
+        DecimalFormat df = new DecimalFormat("#.##");
         
         try {
             // Set up scanner to input file
@@ -52,7 +54,7 @@ public class Warning {
                 if ((gpa < 1.5 && creditHrs < 30) || 
                         (gpa < 1.75 && creditHrs < 60) ||
                         (gpa < 2.0 && creditHrs >= 60))
-                    outFile.write(name + " " + creditHrs + " " + gpa + "\n");
+                    outFile.write(name + " " + creditHrs + " " + df.format(gpa) + "\n");
             }
             // Close output file
             outFile.close();
